@@ -40,6 +40,16 @@ class App extends React.Component {
         }
       ]
     };
+    this.addTrack = this.addTrack.bind(this);
+  }
+
+  addTrack(track) {
+    const foundTrack = this.state.playlistTracks.find(
+      (playlistTrack) => playlistTrack.id === track.id
+    );
+    const newTrack = this.state.playlistTracks.concat(track);
+    foundTrack ? console.log('Track alriady exist') : this.setState({ playlistTracks: newTrack });
+
   }
 
   render() {
@@ -51,7 +61,9 @@ class App extends React.Component {
           <SearchBar />
           <div className='App-playlist'>
             {/*  */}
-            <SearchResults searchResults={this.state.searchResults}/>
+            <SearchResults 
+            searchResults={this.state.searchResults}
+            onAdd={this.addTrack} />
 
             {/*  */}
             <Playlist 
