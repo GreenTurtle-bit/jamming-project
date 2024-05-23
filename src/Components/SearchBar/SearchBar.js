@@ -4,8 +4,8 @@ import './SearchBar.css'
 export class SearchBar extends React.Component {
     render() {
         return (
-            <div>
-                <input placeholder='Enter A Song, Album or Artist'  m/>
+            <div className='SearchBar'>
+                <input placeholder='Enter A Song Tiltle' />
                 <button className='SearchButton'>SEARCH</button>
             </div>
         );
